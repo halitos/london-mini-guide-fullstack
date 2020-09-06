@@ -19,37 +19,35 @@ const DataTable = ({ category, city }) => {
   return (
     <div style={{ width: "80%" }}>
       {data && console.log("table", data)}
-      <h3 className="text-center m-5">
+      <h3 className="text-center m-5 text-info">
         {city} {category}
       </h3>
-      <div className="table-responsive text-center">
-        <table className="table" style={{ maxWidth: "70%" }}>
-          <thead className="table-dark">
-            <tr>
-              {data &&
-                Object.keys(data[0]).map((p, i) => {
-                  return (
-                    <th scope="col" key={i}>
-                      {p}
-                    </th>
-                  );
-                })}
-            </tr>
-          </thead>
-          <tbody>
+      <table className="table">
+        <thead className="table-dark">
+          <tr>
             {data &&
-              data.map((p, i) => {
+              Object.keys(data[0]).map((p, i) => {
                 return (
-                  <tr className="w-85 text-wrap" key={i}>
-                    {Object.values(p).map((k, i) => {
-                      return <td key={i}>{k}</td>;
-                    })}
-                  </tr>
+                  <th scope="col" key={i}>
+                    {p}
+                  </th>
                 );
               })}
-          </tbody>
-        </table>
-      </div>
+          </tr>
+        </thead>
+        <tbody>
+          {data &&
+            data.map((p, i) => {
+              return (
+                <tr className="w-85 text-wrap" key={i}>
+                  {Object.values(p).map((k, i) => {
+                    return <td key={i}>{k}</td>;
+                  })}
+                </tr>
+              );
+            })}
+        </tbody>
+      </table>
     </div>
   );
 };

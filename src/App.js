@@ -20,8 +20,7 @@ function App() {
     <div
       className="d-flex flex-column m-3 p-4 align-items-center justify-content-between"
       style={{
-        minHeight: "70vh",
-        background: "./public/london.img.jpg",
+        minHeight: "80vh",
       }}
     >
       <h1>London Mini Guide</h1>
