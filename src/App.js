@@ -1,23 +1,29 @@
-import React, { useState } from 'react';
-import Cities from './components/Cities'
-import Categories from './components/Categories'
-import DataTable from './components/DataTable'
-import Error from './components/Error'
+import React, { useState } from "react";
+import Cities from "./components/Cities";
+import Categories from "./components/Categories";
+import DataTable from "./components/DataTable";
+import Error from "./components/Error";
 
 function App() {
-  const [city, setCity] = useState(null)
-  const [category, setCategory] = useState(null)
+  const [city, setCity] = useState(null);
+  const [category, setCategory] = useState(null);
 
   const handleCityChange = (newCity) => {
-    setCity(newCity)
-  }
+    setCity(newCity);
+  };
 
   const handleCategory = (category) => {
-    setCategory(category)
-  }
+    setCategory(category);
+  };
 
   return (
-    <div className="App" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', minHeight: '100vh', margin: '3% 10%' }}>
+    <div
+      className="d-flex flex-column m-3 p-4 align-items-center justify-content-between"
+      style={{
+        minHeight: "70vh",
+        background: "./public/london.img.jpg",
+      }}
+    >
       <h1>London Mini Guide</h1>
       <Cities handleCityChange={handleCityChange} />
       {!city && category && <Error />}

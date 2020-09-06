@@ -8,8 +8,13 @@ const Cities = ({ handleCityChange }) => {
 
   return (
     <div>
-      <label>Choose a city:</label>
-      <select name="cities" id="cities" onChange={handleChange}>
+      <h3 className="text-muted mb-4">Choose a city</h3>
+      <select
+        className="custom-select"
+        name="cities"
+        id="cities"
+        onChange={handleChange}
+      >
         <option>Select a City</option>
         {cities.map((city, id) => (
           <option key={id} value={city.name}>
