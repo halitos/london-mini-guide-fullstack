@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div
-      className="d-flex flex-column m-3 p-4 align-items-center justify-content-between"
+      className="d-flex flex-column mt-3 p-1 align-items-center justify-content-between"
       style={{
         minHeight: "80vh",
       }}
