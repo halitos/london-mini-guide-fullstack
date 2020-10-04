@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Error = () => {
-    return (
-        <div>
-            Check out your request, a city and category must be chosen
-        </div>
-    )
-}
+  return <div>Please enter a city to choose a category.</div>;
+};
 
-export default Error
+export default Error;
