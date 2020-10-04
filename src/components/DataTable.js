@@ -2,23 +2,16 @@ import React, { useState, useEffect } from "react";
 
 const DataTable = ({ category, city }) => {
   const [data, setData] = useState(null);
-  console.log("1", city, category);
-  useEffect(() => {
-    console.log(
-      "2",
-      city,
-      category,
-      `https://halit-london-guide.herokuapp.com/${city}/${category}`
-    );
 
+  useEffect(() => {
     fetch(`https://halit-london-guide.herokuapp.com/${city}/${category}`)
       .then((data) => data.json())
       .then((data) => setData(data));
   }, [category, city]);
 
   return (
-    <div style={{ width: "80%" }}>
-      {data && console.log("table", data)}
+    <div style={{ width: "60vw", textAlign: "center" }}>
+      {/* {data && console.log("table", data)} */}
       <h3 className="text-center m-5 text-info">
         {city} {category}
       </h3>
