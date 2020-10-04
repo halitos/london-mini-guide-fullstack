@@ -9,40 +9,42 @@ const DataTable = ({ category, city }) => {
       .then((data) => setData(data));
   }, [category, city]);
 
-  return (
-    <div style={{ width: "60vw", textAlign: "center" }}>
-      {/* {data && console.log("table", data)} */}
-      <h3 className="text-center m-5 text-info">
-        {city} {category}
-      </h3>
-      <table className="table">
-        <thead className="table-dark">
-          <tr>
+  if (category && city) {
+    return (
+      <div style={{ width: "60vw", textAlign: "center" }}>
+        {/* {data && console.log("table", data)} */}
+        <h3 className="text-center m-5 text-info">
+          {city} {category}
+        </h3>
+        <table className="table">
+          <thead className="table-dark">
+            <tr>
+              {data &&
+                Object.keys(data[0]).map((p, i) => {
+                  return (
+                    <th scope="col" key={i}>
+                      {p}
+                    </th>
+                  );
+                })}
+            </tr>
+          </thead>
+          <tbody>
             {data &&
-              Object.keys(data[0]).map((p, i) => {
+              data.map((p, i) => {
                 return (
-                  <th scope="col" key={i}>
-                    {p}
-                  </th>
+                  <tr className="w-85 text-wrap" key={i}>
+                    {Object.values(p).map((k, i) => {
+                      return <td key={i}>{k}</td>;
+                    })}
+                  </tr>
                 );
               })}
-          </tr>
-        </thead>
-        <tbody>
-          {data &&
-            data.map((p, i) => {
-              return (
-                <tr className="w-85 text-wrap" key={i}>
-                  {Object.values(p).map((k, i) => {
-                    return <td key={i}>{k}</td>;
-                  })}
-                </tr>
-              );
-            })}
-        </tbody>
-      </table>
-    </div>
-  );
+          </tbody>
+        </table>
+      </div>
+    );
+  } else return null;
 };
 
 export default DataTable;
