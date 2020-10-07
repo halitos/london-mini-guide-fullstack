@@ -15,7 +15,7 @@ const Cities = ({ handleCityChange }) => {
         id="cities"
         onChange={handleChange}
       >
-        <option>Select a City</option>
+        <option value="">Select a City</option>
         {cities.map((city, id) => (
           <option key={id} value={city.name}>
             {city.name}
