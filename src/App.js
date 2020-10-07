@@ -25,7 +25,7 @@ function App() {
     >
       <h1>London Mini Guide</h1>
       <Cities handleCityChange={handleCityChange} />
-      <Error category={category} city={city} />
+      {category && city && <Error />}
       <Categories handleCategory={handleCategory} category={category} />
       <DataTable category={category} city={city} />
     </div>
